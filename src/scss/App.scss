@@ -1,1 +1,48 @@
 @import 'core/reset';
+
+#root {
+  background-color: gray;
+}
+//header
+.title {
+  background-color: gray;
+  display: flex;
+  justify-content: center;
+  &--hplogo {
+    margin: 1rem;
+    width: 60vw;
+  }  
+}
+
+//form
+.search {
+  display: flex;
+  justify-content: center;
+  margin: 1rem 1rem 4rem 1rem;
+  display: flex;
+  flex-direction: column;
+
+  &____character {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    
+    &--inp {
+      height: 3rem;
+      width: 12rem;
+    }
+  }
+
+  &__house {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    
+    &--sel {
+      height: 3rem;
+      width: 12rem;
+    }
+  }
+}
+  
+//next
