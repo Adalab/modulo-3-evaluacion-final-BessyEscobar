@@ -1,18 +1,18 @@
 import PropTypes from "prop-types";
 
-function CharacterDetail({ name, spices }) {
+function CharacterDetail({ name, species }) {
   return (
     <li>
       <img src="" alt="" />
       <h3> {name} </h3>
-      <p> {spices} </p>
+      <p> {species} </p>
     </li>
   );
 }
 
 CharacterDetail.propTypes = {
   name: PropTypes.string,
-  spices: PropTypes.string,
+  species: PropTypes.string,
 };
 
 export default CharacterDetail;

@@ -1,3 +1,6 @@
+//react
+import { useState } from "react";
+
 //estilos
 import "../scss/App.scss";
 
@@ -8,8 +11,11 @@ import CharacterList from "./CharacterList";
 import Footer from "./Footer";
 
 //otros
+import dataCharactes from "../data/apiData.json";
 
 function App() {
+  const [characterList, setCharactersList] = useState(dataCharactes);
+
   return (
     <div>
       <Header></Header>
@@ -18,7 +24,7 @@ function App() {
           <Filter></Filter>
         </section>
         <section>
-          <CharacterList></CharacterList>
+          <CharacterList characterList={dataCharactes}></CharacterList>
         </section>
       </main>
       <Footer></Footer>
