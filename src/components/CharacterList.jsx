@@ -1,8 +1,10 @@
+import CharacterDetail from "./CharacterDetail";
+
 function CharacterList() {
   return (
     <ul>
-      <li>personaje</li>
-      <li>personaje</li>
+      <CharacterDetail></CharacterDetail>
+      <CharacterDetail></CharacterDetail>
     </ul>
   );
 }

@@ -1,5 +1,9 @@
 function Footer() {
-  return <footer>Created by: BessyEscobar</footer>;
+  return (
+    <footer>
+      <h5>Created by: BessyEscobar 👩‍💻</h5>
+    </footer>
+  );
 }
 
 export default Footer;
