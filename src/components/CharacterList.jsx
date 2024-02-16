@@ -11,7 +11,7 @@ import PropTypes from "prop-types";
 function CharacterList({ characterList }) {
   const characterHtml = characterList.map((character, id) => (
     <li key={id} className="">
-      <CharacterDetail name={character.name} spices={character.species} />
+      <CharacterDetail name={character.name} spices={character.species} image={character.image} />
     </li>
   ));
 
