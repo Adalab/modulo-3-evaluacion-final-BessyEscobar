@@ -11,23 +11,27 @@ import CharacterList from "./CharacterList";
 import Footer from "./Footer";
 
 //otros
-import dataCharactes from "../data/apiData.json";
+// import dataCharactes from "../data/apiData.json";
 import { fetchCharacter } from "../services/fetch";
+import ls from '../services/localStorage';
 
 function App() {
 
   //1. Variables de estado
-  const [characters, setCharacters] = useState(dataCharactes)
+  const [characters, setCharacters] = useState( ls.get('character', []) );
 
   // const [characterList, setCharactersList] = useState(dataCharactes);// no la estoy usando  
  //2.- useEffect
 
  useEffect(() => {
 
-  fetchCharacter()
-  .then(responseData => {
-    setCharacters(responseData)
-  });
+  if( !ls.includes('character') ) {
+    fetchCharacter()
+      .then(responseData => {
+        setCharacters(responseData);
+        ls.set('character', responseData)
+      });
+  }
 
  }, [])
 
@@ -44,7 +48,7 @@ function App() {
           <Filter></Filter>
         </section>
         <section>
-          <CharacterList characterList={dataCharactes}></CharacterList>
+          <CharacterList characters={characters}></CharacterList>
         </section>
       </main>
       <Footer></Footer>

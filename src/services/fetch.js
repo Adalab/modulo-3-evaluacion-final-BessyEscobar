@@ -12,6 +12,8 @@ export function fetchCharacter() {
           image: eachObj.image,
           species: eachObj.species,
           house: eachObj.house,
+          gender: eachObj.gender,
+          alive: eachObj.alive,
         }
       }) 
     })

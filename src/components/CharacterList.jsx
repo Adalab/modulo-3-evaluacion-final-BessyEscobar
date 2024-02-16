@@ -8,14 +8,18 @@ import PropTypes from "prop-types";
 
 //otro
 
-function CharacterList({ characterList }) {
-  const characterHtml = characterList.map((character, id) => (
-    <li key={id} className="">
+function CharacterList({ characters }) {
+  const renderCharacters = characters.map((character) => {
+    return (
+        <li key={characters.id} className="">
       <CharacterDetail name={character.name} spices={character.species} image={character.image} />
     </li>
-  ));
+    );  
+  });
 
-  return <ul>{characterHtml}</ul>;
+  return (
+    <ul>{renderCharacters}</ul>
+  );
 }
 
 CharacterList.propTypes = {
