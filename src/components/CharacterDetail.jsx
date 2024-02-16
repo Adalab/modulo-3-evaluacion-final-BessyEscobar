@@ -5,7 +5,7 @@ function CharacterDetail({ name, species }) {
     <li>
       <img src="" alt="" />
       <h3> {name} </h3>
-      <p> {species} </p>
+      <p>{species}</p>
     </li>
   );
 }
