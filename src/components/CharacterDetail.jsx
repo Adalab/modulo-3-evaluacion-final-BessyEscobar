@@ -1,5 +1,5 @@
 import PropTypes from "prop-types";
-import placeHolder from '../../docs/assets/images/placeholderHP.png'
+import placeHolder from '../image/placeholderHP.png'
 
 function CharacterDetail({ name, species, image}) {
   return (

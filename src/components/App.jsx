@@ -1,5 +1,6 @@
 //react
 import { useEffect, useState } from "react";
+import { Routes, Route, Link } from 'react-router-dom';
 
 //estilos
 import "../scss/App.scss";
@@ -44,13 +45,18 @@ function App() {
     <div>
       <Header></Header>
       <main>
-        <section>
+
+        <Routes>
+          
+        <Route>
           <Filter></Filter>
-        </section>
-        <section>
-          <CharacterList characters={characters}></CharacterList>
-        </section>
+        </Route>
+        
+        <Route path='/' element={ <CharacterList characters={characters}/> } />
+
+        </Routes>
       </main>
+
       <Footer></Footer>
     </div>
   );

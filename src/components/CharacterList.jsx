@@ -1,4 +1,5 @@
 //react
+import { Link } from 'react-router-dom';
 
 //componentes
 import CharacterDetail from "./CharacterDetail";

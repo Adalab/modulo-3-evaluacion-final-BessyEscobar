@@ -1,5 +1,5 @@
 import "../scss/App.scss";
-import hpLogo from "../../docs/assets/images/HP-logo.png";
+import hpLogo from "../image/HP-logo.png";
 
 function Header() {
   return (
