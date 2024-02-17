@@ -34,7 +34,7 @@ function App() {
       });
   }
 
- }, [])
+ }, [characters])
 
  //3.- funciones de evento
  
@@ -46,15 +46,16 @@ const handelSelect = ( filter, value) => {
   if ( filter === 'house') {
     setFilterHouse(value);
   } else {
-    fetch (`https://hp-api.onrender.com/api/characters/house/${value}`)
+    fetch (`https://hp-api.onrender.com/api/characters/house/${filterHouse}`)
     .then( response => response.json())
     .then(data => {
       setCharacters(data);
     });
   }
+
   console.log(value);//quitarlo luego select
 //   setFilterHouse(value)
-};
+} ;
 
 
  const filterSelect = characters.filter( characters => {

@@ -29,7 +29,7 @@ function Filter( { handleFilter, filterName, handleSelect, filterSelect } ) {
       <label htmlFor="house" className="search__house">
         Select a house:{" "}
       
-      <select className="search__character--sel" value={filterSelect} onInput={handleFilterSelect} >
+      <select className="search__character--sel" value={filterSelect} onChange={handleFilterSelect} >
         <option value="Gryffindor">Gryffindor</option>
         <option value="Ravenclaw">Ravenclaw</option>
         <option value="Slytherin">Slytherin</option>
@@ -39,6 +39,13 @@ function Filter( { handleFilter, filterName, handleSelect, filterSelect } ) {
       </label>
     </form>
   );
+}
+
+Filter.propTypes = {
+  filterSelect: PropTypes.string,
+  handleSelect: PropTypes.func,
+  filterName: PropTypes.string,
+  handleFilter: PropTypes.func,
 }
 
 export default Filter;
