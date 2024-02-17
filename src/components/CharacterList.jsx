@@ -1,5 +1,5 @@
 //react
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 
 //componentes
 import CharacterDetail from "./CharacterDetail";
@@ -10,10 +10,10 @@ import PropTypes from "prop-types";
 //otro
 
 function CharacterList({ characters }) {
-  const renderCharacters = characters.map((character) => {
+  const renderCharacters = characters.map((characters) => {
     return (
         <li key={characters.id} className="">
-      <CharacterDetail name={character.name} species={character.species} image={character.image} house={character.house} />
+      <CharacterDetail name={characters.name} species={characters.species} image={characters.image} house={characters.house} />
     </li>
     );  
   });

@@ -1,7 +1,7 @@
 //react
 import { useEffect, useState } from "react";
 import { Routes, Route, Link } from 'react-router-dom';
-
+import PropTypes from 'prop-types'
 //estilos
 import "../scss/App.scss";
 
@@ -38,23 +38,48 @@ function App() {
 
  //3.- funciones de evento
  
- const [filterName, setFilterName] = useState('');//pasar a variables de estado
+ const [filterName, setFilterName] = useState('');//pasar a variables de estado filtrado por nombre
+
+ const [filterHouse, setFilterHouse] = useState('Gryffindor') //subir a variables de estado filtrar por casa
+
+const handelSelect = ( filter, value) => {
+  if ( filter === 'house') {
+    setFilterHouse(value);
+  } else {
+    fetch (`https://hp-api.onrender.com/api/characters/house/${value}`)
+    .then( response => response.json())
+    .then(data => {
+      setCharacters(data);
+    });
+  }
+  console.log(value);//quitarlo luego select
+//   setFilterHouse(value)
+};
+
+
+ const filterSelect = characters.filter( characters => {
+  return filterHouse === 'all' || characters.house === filterHouse;
+ });
+
+
 
  const handleFilter = ( value ) => { 
-  console.log(value);
+  console.log(value);//quitar luego input
 
   setFilterName(value);
  };
 
 
- const filterInput = characters.filter( characters => {
-  if(filterName === '' ) {
-    return true;
-  }
-  else{
-    return characters.name === filterName;
-  }
- });
+const filterInput = characters.filter( characters => {
+  return characters.name.toLowerCase().includes( filterName.toLowerCase() );
+});
+
+
+
+  
+   
+  
+
 
  //4.- funciones o variables para html
 
@@ -68,7 +93,14 @@ function App() {
           
         <Route path='/' element={ 
         <>
-        <Filter handleFilter={handleFilter} filterInput={filterInput} /> 
+        <Filter 
+        handleFilter={handleFilter} 
+        filterInput={filterInput} 
+        
+        handleSelect={handelSelect}
+        filterSelect={filterSelect}
+
+        /> 
         
         <CharacterList characters={filterInput}/> 
         </>  }>

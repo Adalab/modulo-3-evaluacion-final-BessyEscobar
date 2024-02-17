@@ -1,11 +1,19 @@
+import PropTypes from 'prop-types';
+
 import "../scss/App.scss";
 
-function Filter( { handleFilter, filterName } ) {
 
+function Filter( { handleFilter, filterName, handleSelect, filterSelect } ) {
+
+  //para filtrar el nombre
  const handleFilterInput = (event) => {
-  
   handleFilter(event.currentTarget.value);
+ };
 
+ //para filtrar la casa
+ const handleFilterSelect = (event) => {
+  console.log(event.currentTarget.value)
+  handleSelect("house", event.currentTarget.value);
  };
 
   return (
@@ -14,20 +22,21 @@ function Filter( { handleFilter, filterName } ) {
       {/* Para buscar por nombre */}
       <label htmlFor="" className="search__character">
         Search by character:{" "}
-      </label>
       <input type="text" className="search__character--inp" value={filterName} onInput={handleFilterInput}/>
-      
-      {/* Para buscar por casa */}
-      <label htmlFor="" className="search__house">
-        Select a house:{" "}
       </label>
-      <select name="" id="" className="search__character--sel"  onInput={'handleSelect'} >
+
+      {/* Para buscar por casa */}
+      <label htmlFor="house" className="search__house">
+        Select a house:{" "}
+      
+      <select className="search__character--sel" value={filterSelect} onInput={handleFilterSelect} >
         <option value="Gryffindor">Gryffindor</option>
         <option value="Ravenclaw">Ravenclaw</option>
         <option value="Slytherin">Slytherin</option>
         <option value="Hufflepuff">Hufflepuff</option>
-        <option value="Allhouses">All Houses</option>
+        <option value="all">All Houses</option>
       </select>
+      </label>
     </form>
   );
 }
