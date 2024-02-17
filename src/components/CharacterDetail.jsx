@@ -4,6 +4,8 @@ import placeHolder from '../image/placeholderHP.png'
 function CharacterDetail({ name, species, image}) {
   return (
     <div>
+
+      {/* //link */}
     <li className="character__card">
       <img src={image || placeHolder} alt="Photo Character" className="character__card--img"/>
       <h3> {name} </h3>

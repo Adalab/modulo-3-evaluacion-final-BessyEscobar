@@ -13,7 +13,7 @@ function CharacterList({ characters }) {
   const renderCharacters = characters.map((character) => {
     return (
         <li key={characters.id} className="">
-      <CharacterDetail name={character.name} spices={character.species} image={character.image} />
+      <CharacterDetail name={character.name} species={character.species} image={character.image} />
     </li>
     );  
   });
@@ -24,7 +24,7 @@ function CharacterList({ characters }) {
 }
 
 CharacterList.propTypes = {
-  characterList: PropTypes.array,
+  characters: PropTypes.array,
 };
 
 export default CharacterList;

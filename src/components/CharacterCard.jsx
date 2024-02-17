@@ -5,7 +5,7 @@ import '../scss/App.scss';
 
 function CharacterCard( {characters, name, species, image, id} ) {
     return (
-    < Link to={'/CharacterCard/'+characters.id}
+    < Link to={'/CharacterCard/'+characters.id} //cambiar este link a Character Detail añadir el botoonn de volver para APP
     > 
       <div>
       

@@ -48,11 +48,16 @@ function App() {
 
         <Routes>
           
-        <Route>
-          <Filter></Filter>
+        <Route path='/' element={ 
+        <>
+        <Filter /> 
+        
+        <CharacterList characters={characters}/> 
+        </>  }>
+        
         </Route>
         
-        <Route path='/' element={ <CharacterList characters={characters}/> } />
+        {/* <Route path='/CharacterCard/:id' element={ character card } /> */}
 
         </Routes>
       </main>
