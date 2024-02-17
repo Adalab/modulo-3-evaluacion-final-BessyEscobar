@@ -13,7 +13,7 @@ function CharacterList({ characters }) {
   const renderCharacters = characters.map((character) => {
     return (
         <li key={characters.id} className="">
-      <CharacterDetail name={character.name} species={character.species} image={character.image} />
+      <CharacterDetail name={character.name} species={character.species} image={character.image} house={character.house} />
     </li>
     );  
   });

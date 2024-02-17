@@ -37,6 +37,24 @@ function App() {
  }, [])
 
  //3.- funciones de evento
+ 
+ const [filterName, setFilterName] = useState('');//pasar a variables de estado
+
+ const handleFilter = ( value ) => { 
+  console.log(value);
+
+  setFilterName(value);
+ };
+
+
+ const filterInput = characters.filter( characters => {
+  if(filterName === '' ) {
+    return true;
+  }
+  else{
+    return characters.name === filterName;
+  }
+ });
 
  //4.- funciones o variables para html
 
@@ -50,9 +68,9 @@ function App() {
           
         <Route path='/' element={ 
         <>
-        <Filter /> 
+        <Filter handleFilter={handleFilter} filterInput={filterInput} /> 
         
-        <CharacterList characters={characters}/> 
+        <CharacterList characters={filterInput}/> 
         </>  }>
         
         </Route>
