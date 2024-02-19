@@ -15,21 +15,30 @@
 }
 
 //form
+.form{
+  width: 50%;
+  margin: 0 auto;
+  padding: 1.5rem;
+  border: 1px solid #ccc;
+  border-radius: 0.8rem;
+}
+
 .search {
   display: flex;
   justify-content: center;
-  margin: 1rem 1rem 4rem 1rem;
   display: flex;
   flex-direction: column;
 
-  &____character {
+  &__character {
     display: flex;
     align-items: center;
     gap: 1rem;
+    margin: 0rem 0rem 1rem;
     
     &--inp {
-      height: 3rem;
+      height: 1.3rem;
       width: 12rem;
+      border-radius: 3rem;
     }
   }
 
@@ -37,25 +46,42 @@
     display: flex;
     align-items: center;
     gap: 1rem;
-    
+        
     &--sel {
-      height: 3rem;
+      height: 1.3rem;
       width: 12rem;
+      border-radius: 3rem;
     }
   }
 }
   
 //li del character detail
+.list{
+ width: 50%;
+ margin: 0rem auto;
+ padding: 2rem; 
+}
+
+.character__list {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  list-style-type: none;
+}
+
 .character__card {
+  margin: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 1.2rem;
   display: flex;
   flex-direction: column;
   align-items: center;
   width: 40vw;
+  padding: 1rem;
   &--img{
     border: 0.3rem solid black;
     width: 15rem;
     height: 18rem;
     border-radius: 10%;
-
   }
 }

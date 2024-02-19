@@ -1,30 +1,37 @@
-//react
-// import { Link } from 'react-router-dom';
-
-//componentes
-import CharacterDetail from "./CharacterDetail";
-
-//proptypes
 import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
+import CharacterCard from "./CharacterCard";
 
-//otro
+import "../scss/App.scss";
 
-function CharacterList({ characters }) {
-  const renderCharacters = characters.map((characters) => {
+function CharacterList({ filterCharacters, filterName,  }) {
+
+
+  if (filterCharacters.length === 0) {
+   return <p> {filterName} sorry, we can not find you 💔</p>
+  } else {
+    
     return (
-        <li key={characters.id} className="">
-      <CharacterDetail name={characters.name} species={characters.species} image={characters.image} house={characters.house} />
-    </li>
-    );  
-  });
+      <ul className="character__list">
 
-  return (
-    <ul>{renderCharacters}</ul>
-  );
+        {filterCharacters.map( characters => 
+           <li key={characters.id}>
+            <Link to={`/CharacterCard/${characters.id}`}
+            data={characters} >
+              <CharacterCard filterCharacters={characters} />
+            </Link>
+          </li>
+        )}
+
+      </ul>
+    );
+  }
+
 }
 
 CharacterList.propTypes = {
-  characters: PropTypes.array,
+  filterCharacters: PropTypes.oneOfType([PropTypes.array, PropTypes.object]).isRequired,
+  filterName: PropTypes.string.isRequired,
 };
 
 export default CharacterList;

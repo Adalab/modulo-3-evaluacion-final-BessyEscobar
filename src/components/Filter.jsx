@@ -3,49 +3,60 @@ import PropTypes from 'prop-types';
 import "../scss/App.scss";
 
 
-function Filter( { handleFilter, filterName, handleSelect, filterSelect } ) {
-
-  //para filtrar el nombre
- const handleFilterInput = (event) => {
-  handleFilter(event.currentTarget.value);
- };
-
- //para filtrar la casa
- const handleFilterSelect = (event) => {
-  console.log(event.currentTarget.value)
-  handleSelect("house", event.currentTarget.value);
- };
+function Filter( { setFilterName, setFilterHouse, filterName, filterHouse, handleResetButton } ) {
+//para filtar por nombre
+const handleFilterInput = (event) =>{
+setFilterName(event.currentTarget.value)
+}
+//para filtrar por casa
+const handleFilterSelect = (event) => {
+  setFilterHouse(event.currentTarget.value)
+}
 
   return (
+    <div className='form'>
     <form className="search">
 
       {/* Para buscar por nombre */}
       <label htmlFor="" className="search__character">
-        Search by character:{" "}
-      <input type="text" className="search__character--inp" value={filterName} onInput={handleFilterInput}/>
+        Search by character:
+      <input type="text" 
+      className="search__character--inp" 
+      value={filterName} 
+      onChange={handleFilterInput}/>
       </label>
 
       {/* Para buscar por casa */}
       <label htmlFor="house" className="search__house">
-        Select a house:{" "}
-      
-      <select className="search__character--sel" value={filterSelect} onChange={handleFilterSelect} >
+        Select a house:      
+      <select className="search__house--sel" 
+      value={filterHouse} 
+      onChange={handleFilterSelect} >
         <option value="Gryffindor">Gryffindor</option>
         <option value="Ravenclaw">Ravenclaw</option>
         <option value="Slytherin">Slytherin</option>
         <option value="Hufflepuff">Hufflepuff</option>
-        <option value="all">All Houses</option>
+        <option value="all">All Characters</option>
       </select>
       </label>
+      
     </form>
+
+    <button className="" 
+    onClick={handleResetButton}>
+    Lumos 🪄
+    </button>
+
+    </div>
   );
 }
 
 Filter.propTypes = {
-  filterSelect: PropTypes.string,
-  handleSelect: PropTypes.func,
-  filterName: PropTypes.string,
-  handleFilter: PropTypes.func,
+  setFilterName: PropTypes.func.isRequired,
+  setFilterHouse: PropTypes.func.isRequired,
+  filterName: PropTypes.string.isRequired,
+  filterHouse: PropTypes.string.isRequired,
+  handleResetButton: PropTypes.func.isRequired,
 }
 
 export default Filter;

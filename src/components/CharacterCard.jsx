@@ -1,32 +1,26 @@
-import { Link } from 'react-router-dom';
 import PropTypes from "prop-types";
+
+import placeHolder from '../image/placeholderHP.png'
 
 import '../scss/App.scss';
 
-function CharacterCard( {characters, name, species, image, house, id} ) {
+function CharacterCard( { filterCharacters } ) {
     return (
-    < Link to={'/CharacterCard/'+characters.id} //cambiar este link a Character Detail añadir el botoonn de volver para APP
-    > 
       <div>
       
-        <img src={characters.image || placeHolder} alt="Photo Character" className="character__card--img"/>
+        <img src={filterCharacters.image || placeHolder} alt="Photo Character" className="character__card--img"/>
         <div>
-        <h3> {characters.name} </h3>
-        <p>{characters.species}</p>
-        <p>{ characters.house} </p>
+        <h3>Name: {filterCharacters.name} </h3>
+        <p>Specie: {filterCharacters.species} </p>
+        <p>House: {filterCharacters.house} </p>
         </div>
       </div>
-    </Link>
-    )
+    );
 
 }
 
 CharacterCard.propTypes = {
-  name: PropTypes.string,
-  species: PropTypes.string,
-  image: PropTypes.string,
-  house: PropTypes.string,
+  filterCharacters: PropTypes.oneOfType([PropTypes.array, PropTypes.object]).isRequired,
 };
-
 
 export default CharacterCard;

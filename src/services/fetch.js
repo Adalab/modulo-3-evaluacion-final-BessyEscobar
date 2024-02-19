@@ -1,12 +1,10 @@
 
-
-
-export function fetchCharacter() {
-   return fetch('https://hp-api.onrender.com/api/characters')
-    .then( response => response.json() )
-    .then( responseData => {
-      return responseData.map( (eachObj) => {
-        return {
+const Api = ( ) => {
+ 
+  return fetch('https://hp-api.onrender.com/api/characters')
+    .then( (response) => response.json() )
+    .then( (responseData) => {
+      const result = responseData.map( (eachObj) => ({
           id: eachObj.id,
           name: eachObj.name,
           image: eachObj.image,
@@ -14,7 +12,9 @@ export function fetchCharacter() {
           house: eachObj.house,
           gender: eachObj.gender,
           alive: eachObj.alive,
-        }
-      }) 
-    })
-}
+      }));
+      return result;
+      });
+};
+
+export default Api;
