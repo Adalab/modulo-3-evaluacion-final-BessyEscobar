@@ -6,7 +6,7 @@ import '../scss/App.scss';
 
 function CharacterCard( { filterCharacters } ) {
     return (
-      <div>
+      <div className="character__card">
       
         <img src={filterCharacters.image || placeHolder} alt="Photo Character" className="character__card--img"/>
         <div>

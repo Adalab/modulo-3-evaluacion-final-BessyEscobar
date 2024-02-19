@@ -16,7 +16,7 @@ function CharacterList({ filterCharacters, filterName,  }) {
 
         {filterCharacters.map( characters => 
            <li key={characters.id}>
-            <Link to={`/CharacterCard/${characters.id}`}
+            <Link className="link" to={`/CharacterCard/${characters.id}`}
             data={characters} >
               <CharacterCard filterCharacters={characters} />
             </Link>

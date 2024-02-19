@@ -11,6 +11,8 @@ setFilterName(event.currentTarget.value)
 //para filtrar por casa
 const handleFilterSelect = (event) => {
   setFilterHouse(event.currentTarget.value)
+  console.log('funciona')
+  console.log(handleFilterSelect)
 }
 
   return (
@@ -42,9 +44,9 @@ const handleFilterSelect = (event) => {
       
     </form>
 
-    <button className="" 
+    <button className="resetBtn" 
     onClick={handleResetButton}>
-    Lumos 🪄
+    Forget it 🪄
     </button>
 
     </div>

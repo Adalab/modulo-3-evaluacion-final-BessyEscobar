@@ -15,7 +15,7 @@ function Main( { filterCharacters, setFilterName, setFilterHouse, filterName, fi
             />
 
             <CharacterList filterCharacters={filterCharacters} filterName={filterName} /> 
-    
+                
         </main>
 
     ) }

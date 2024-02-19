@@ -14,7 +14,7 @@
   }  
 }
 
-//form
+//filter
 .form{
   width: 50%;
   margin: 0 auto;
@@ -54,6 +54,15 @@
     }
   }
 }
+
+.resetBtn {
+  display: flex;
+  text-align: center;
+  align-items: center;
+  margin: 1rem 0rem 1rem 0rem;
+  padding: 0rem 0.5rem 0rem 0.5rem;
+  border-radius: 3rem;
+}
   
 //li del character detail
 .list{
@@ -67,6 +76,14 @@
   justify-content: center;
   flex-wrap: wrap;
   list-style-type: none;
+  text-decoration: none;
+  
+  .link {
+    text-decoration: none;
+    color: black;
+    text-align: center;
+  }
+
 }
 
 .character__card {
@@ -78,6 +95,7 @@
   align-items: center;
   width: 40vw;
   padding: 1rem;
+
   &--img{
     border: 0.3rem solid black;
     width: 15rem;

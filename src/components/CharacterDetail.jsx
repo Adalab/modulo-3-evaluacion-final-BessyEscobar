@@ -9,8 +9,6 @@ import placeHolder from '../image/placeholderHP.png';
 
 import "../scss/App.scss";
 
-import Main from "./Main";// cambiar por la nueva pag que hay que crear.
-
 function CharacterDetail( { characters, alive, image } ) {
   const { characterName } = useParams();
   const characterFound = characters.filter( (obj) => obj.id === characterName );
@@ -56,7 +54,7 @@ function CharacterDetail( { characters, alive, image } ) {
       </article>
     </div>
   ) : (
-    <Main/>
+    <div>Page Not Found </div>
   )
 
 }
@@ -67,4 +65,4 @@ CharacterDetail.propTypes = {
  image: PropTypes.element,
 };
 
-export default CharacterCard;
+export default CharacterDetail;

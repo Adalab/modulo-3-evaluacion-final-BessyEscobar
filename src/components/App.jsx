@@ -41,12 +41,13 @@ function App() {
  //3.- funciones de evento
  
 const filterSelect = characters.filter( characters => {
-  if( characters.house === 'all') {
+  if( filterHouse === 'all') {
     return characters.house === 'Gryffindor','Slytherin', 'Hufflepuff', 'Ravenclaw';
   } else{ 
-    return characters.house === characters.house
+    return characters.house === filterHouse;
   }
 })
+console.log(filterHouse)
 
 const filterCharacters = filterSelect.sort((a, b) => {
   return a.name.localeCompare(b.name);
