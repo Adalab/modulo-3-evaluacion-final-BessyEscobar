@@ -7,13 +7,12 @@ import "../scss/App.scss";
 
 //componentes
 import Header from "./Header";
-import Main from "./Main"
-import CharacterDetail from "./CharacterDetail";
+import Main from "./Main";
+import CharacterCard from "./CharacterCard";
 import Footer from "./Footer";
 
 //otros
-// import dataCharactes from "../data/apiData.json";
-import Api from "../services/fetch";// poner Api
+import Api from "../services/fetch";
 import ls from '../services/localStorage';
 
 
@@ -23,7 +22,6 @@ function App() {
   const [characters, setCharacters] = useState( ls.get('character', []) ); // para pintar el api
   const [filterName, setFilterName] = useState('');//pasar a variables de estado filtrado por nombre
   const [filterHouse, setFilterHouse] = useState('Gryffindor') //subir a variables de estado filtrar por casa
-  // const [characterList, setCharactersList] = useState(dataCharactes);// no la estoy usando  
  //2.- useEffect
 
  useEffect(() => {
@@ -57,6 +55,8 @@ const filterCharacters = filterSelect.sort((a, b) => {
 );
 
 const handleResetButton = () => {
+  setFilterName('')
+  setFilterHouse('Gryffindor')
   ls.clear()
 }
 
@@ -80,7 +80,7 @@ const handleResetButton = () => {
       </Route>
 
       <Route path='/CharacterDetail/:id' 
-      element={ <CharacterDetail characters={characters}/> }>
+      element={ <CharacterCard characters={characters}/> }>
       </Route>
 
     </Routes>

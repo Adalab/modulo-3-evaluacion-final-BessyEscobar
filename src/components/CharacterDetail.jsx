@@ -67,4 +67,4 @@ CharacterDetail.propTypes = {
  image: PropTypes.element,
 };
 
-export default CharacterDetail;
+export default CharacterCard;
