@@ -9,6 +9,7 @@ import "../scss/App.scss";
 import Header from "./Header";
 import Main from "./Main";
 import CharacterCard from "./CharacterCard";
+import CharacterDetail from "./CharacterDetail";
 import Footer from "./Footer";
 
 //otros
@@ -47,7 +48,6 @@ const filterSelect = characters.filter( characters => {
     return characters.house === filterHouse;
   }
 })
-console.log(filterHouse)
 
 const filterCharacters = filterSelect.sort((a, b) => {
   return a.name.localeCompare(b.name);
@@ -77,12 +77,17 @@ const handleResetButton = () => {
       filterHouse={filterHouse}
       filterSelect={filterSelect}
       handleResetButton={handleResetButton}
-      /> } >
-      </Route>
-
+      /> } 
+      >
       <Route path='/CharacterDetail/:id' 
       element={ <CharacterCard characters={characters}/> }>
       </Route>
+
+      <Route path="/CharacterDetail/:id" 
+      element={ <CharacterDetail characters={characters}/> } >
+      </Route>
+
+      </Route>  
 
     </Routes>
     <Footer></Footer>
